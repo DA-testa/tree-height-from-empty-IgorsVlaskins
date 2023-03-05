@@ -31,14 +31,14 @@ def main():
     if 'P' in input_type:
         r = int(input())
         parents = list(map(int, input().split()))
-        height = compute_height(n, parents)
+        height = computeheight(n, parents)
         print(height)
     elif 'Z' in input_type:
         filename = input()
         with open("test/" + filename, 'h') as z:
-            r = int(f.readline())
+            r = int(z.readline())
             parents = list(map(int, z.readline().split()))
-            height = compute_height(r, parents)
+            height = computeheight(r, parents)
             print(height)
     else:
         print("Mistake")
