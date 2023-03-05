@@ -5,12 +5,12 @@ import threading
 def compute_height(r, parents):
     # izveido koku
     children = [[] for _ in range(r)]
-    for i in range(r):
-        parent = parents[i]
+    for l in range(r):
+        parent = parents[l]
         if parent == -1:
-            root = i
+            root = l
         else:
-            children[parent].append(i)
+            children[parent].append(l)
 
     # koka augstums 
     def compute_depth(node):
@@ -28,7 +28,7 @@ def compute_height(r, parents):
 def main():
     input_type = input()
 
-    if 'I' in input_type:
+    if 'L' in input_type:
         r = int(input())
         parents = list(map(int, input().split()))
         height = compute_height(r, parents)
