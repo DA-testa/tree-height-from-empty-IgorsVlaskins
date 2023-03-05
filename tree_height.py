@@ -28,12 +28,12 @@ def compute_height(r, parents):
 def main():
     input_type = input()
 
-    if 'O' in input_type:
+    if 'I' in input_type:
         r = int(input())
         parents = list(map(int, input().split()))
         height = compute_height(r, parents)
         print(height)
-    elif 'G' in input_type:
+    elif 'F' in input_type:
         filename = input()
         with open("test/" + filename, 'r') as f:
             r = int(f.readline())
@@ -51,4 +51,3 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-
