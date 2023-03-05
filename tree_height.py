@@ -4,8 +4,8 @@ import threading
 
 def compute_height(n, parents):
     # izveido koku
-    children = [[] for _ in range(n)]
-    for i in range(n):
+    children = [[] for _ in range(r)]
+    for i in range(r):
         parent = parents[i]
         if parent == -1:
             root = i
@@ -29,19 +29,19 @@ def main():
     input_type = input()
 
     if 'I' in input_type:
-        n = int(input())
+        r = int(input())
         parents = list(map(int, input().split()))
-        height = compute_height(n, parents)
+        height = compute_height(r, parents)
         print(height)
     elif 'F' in input_type:
         filename = input()
         with open("test/" + filename, 'r') as f:
-            n = int(f.readline())
+            r = int(f.readline())
             parents = list(map(int, f.readline().split()))
-            height = compute_height(n, parents)
+            height = compute_height(r, parents)
             print(height)
     else:
-        print("Invalids")
+        print("Mistake")
         exit()
 
 
