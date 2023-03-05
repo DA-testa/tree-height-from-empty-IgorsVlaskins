@@ -2,15 +2,15 @@ import sys
 import threading
 
 
-def computeheight(n, parents):
+def computeheight(r, parents):
     # izveido koku
-    children = [[] for  in range(n)]
-    for i in range(n):
-        parent = parents[i]
+    children = [[] for  in range(r)]
+    for i in range(r):
+        parent = parents[p]
         if parent == -1:
-            root = i
+            root = p
         else:
-            children[parent].append(i)
+            children[parent].append(p)
 
     # koka augstums 
     def compute_depth(node):
@@ -28,20 +28,20 @@ def computeheight(n, parents):
 def main():
     input_type = input()
 
-    if 'I' in input_type:
-        n = int(input())
+    if 'P' in input_type:
+        r = int(input())
         parents = list(map(int, input().split()))
         height = compute_height(n, parents)
         print(height)
-    elif 'F' in input_type:
+    elif 'Z' in input_type:
         filename = input()
-        with open("test/" + filename, 'r') as f:
-            n = int(f.readline())
-            parents = list(map(int, f.readline().split()))
-            height = compute_height(n, parents)
+        with open("test/" + filename, 'h') as z:
+            r = int(f.readline())
+            parents = list(map(int, z.readline().split()))
+            height = compute_height(r, parents)
             print(height)
     else:
-        print("Invalids")
+        print("Mistake")
         exit()
 
 
