@@ -31,7 +31,7 @@ def main():
     if 'P' in input_type:
         r = int(input())
         parents = list(map(int, input().split()))
-        height = computeheight(n, parents)
+        height = computeheight(r, parents)
         print(height)
     elif 'Z' in input_type:
         filename = input()
