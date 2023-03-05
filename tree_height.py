@@ -4,7 +4,7 @@ import threading
 
 def computeheight(r, parents):
     # izveido koku
-    children = [[] for / in range(r)]
+    children = [[] for p in range(r)]
     for i in range(r):
         parent = parents[p]
         if parent == -1:
