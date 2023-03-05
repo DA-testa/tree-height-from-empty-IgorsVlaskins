@@ -2,15 +2,15 @@ import sys
 import threading
 
 
-def computeheight(r, parents):
+def compute_height(n, parents):
     # izveido koku
-    children = [[] for p in range(r)]
-    for p in range(r):
-        parent = parents[p]
+    children = [[] for _ in range(n)]
+    for i in range(n):
+        parent = parents[i]
         if parent == -1:
-            root = p
+            root = i
         else:
-            children[parent].append(p)
+            children[parent].append(i)
 
     # koka augstums 
     def compute_depth(node):
@@ -28,20 +28,20 @@ def computeheight(r, parents):
 def main():
     input_type = input()
 
-    if 'P' in input_type:
-        r = int(input())
+    if 'I' in input_type:
+        n = int(input())
         parents = list(map(int, input().split()))
-        height = computeheight(r, parents)
+        height = compute_height(n, parents)
         print(height)
-    elif 'Z' in input_type:
+    elif 'F' in input_type:
         filename = input()
-        with open("test/" + filename, 'h') as z:
-            r = int(z.readline())
-            parents = list(map(int, z.readline().split()))
-            height = computeheight(r, parents)
+        with open("test/" + filename, 'r') as f:
+            n = int(f.readline())
+            parents = list(map(int, f.readline().split()))
+            height = compute_height(n, parents)
             print(height)
     else:
-        print("Mistake")
+        print("Invalids")
         exit()
 
 
@@ -49,5 +49,5 @@ def main():
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
 sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(22**7)   # new thread will get stack of such size
+threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
