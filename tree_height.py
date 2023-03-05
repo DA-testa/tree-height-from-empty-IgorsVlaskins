@@ -2,7 +2,7 @@ import sys
 import threading
 
 
-def compute_height(n, parents):
+def compute_height(r, parents):
     # izveido koku
     children = [[] for _ in range(r)]
     for i in range(r):
